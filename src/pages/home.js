@@ -4,6 +4,8 @@ import List from '../components/list'
 import Add from '../components/add'
 import { connect } from 'react-redux'
 import { ADD_EMOJI, SET_NEW_EMOJI } from '../constants'
+import { addEmoji } from '../action-creators'
+
 const Home = ({ emojis, newemoji, setNewEmoji, addEmoji }) => {
   return (
     <div>
@@ -24,7 +26,7 @@ const mapActionsToProps = dispatch => {
   return {
     setNewEmoji: e =>
       dispatch({ type: SET_NEW_EMOJI, payload: e.target.value }),
-    addEmoji: emoji => dispatch({ type: ADD_EMOJI, payload: emoji })
+    addEmoji: emoji => dispatch(addEmoji(emoji))
   }
 }
 
